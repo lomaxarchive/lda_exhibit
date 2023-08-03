@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.exhibit_footer_section.field_footer_section_header
+    - field.field.paragraph.exhibit_footer_section.field_text_area
+    - paragraphs.paragraphs_type.exhibit_footer_section
+  module:
+    - text
+id: paragraph.exhibit_footer_section.default
+targetEntityType: paragraph
+bundle: exhibit_footer_section
+mode: default
+content:
+  field_footer_section_header:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_text_area:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

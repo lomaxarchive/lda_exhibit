@@ -1,0 +1,23 @@
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.exhibit_footer_section.field_footer_section_header
+    - field.field.paragraph.exhibit_footer_section.field_text_area
+    - paragraphs.paragraphs_type.exhibit_footer_section
+id: paragraph.exhibit_footer_section.preview
+targetEntityType: paragraph
+bundle: exhibit_footer_section
+mode: preview
+content:
+  field_footer_section_header:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_text_area: true

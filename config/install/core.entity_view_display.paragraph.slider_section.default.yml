@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slider_section.field_slide_content
+    - paragraphs.paragraphs_type.slider_section
+  module:
+    - entity_reference_revisions
+id: paragraph.slider_section.default
+targetEntityType: paragraph
+bundle: slider_section
+mode: default
+content:
+  field_slide_content:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

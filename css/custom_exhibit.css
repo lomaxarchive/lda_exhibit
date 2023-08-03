@@ -1,0 +1,57 @@
+/** Custom  Exhibit Styling ** /
+
+/** Fonts **/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Berkshire+Swash&family=Fascinate&family=Gravitas+One&family=Open+Sans&family=Calistoga&display=swap');
+
+:root {
+    --background-color: white;
+    --heading-color: #555555;
+    --secondary-color: 0, 0, 0;
+    --expanding-color: #213538;
+    --font-color: #555555;
+    --audio-text-color: #a59283;
+    --expanding-color: #313842;
+    --expanding-font-color: white;
+    --accent-color: #FE5F55;
+    --h1-font: "Berkshire Swash";
+    --p-font: "merriweather";
+    --border: url('./border.png');
+    --primary-color-40: rgba(var(--primary-color), 0.4);
+    --secondary-color-40: rgba(var(--secondary-color), 0.4);
+}
+
+.exhibit-special {
+    --background-color: #FDFFFC;
+    --font-color: #484C5B;
+    --heading-color: #314A30;
+    --secondary-color: #DBA159;
+    --expanding-color: #2B061E;
+    --expanding-color-70: #2B061Eee;
+    --accent-color: #d85b30;
+    --h1-font: "Fascinate";
+    --p-font: "Open Sans";
+
+    /** Title card text effect **/
+    & .text-effect-1 h1 {}
+
+    /** Section title card text effect **/
+    & .text-effect-2 h1 {
+        text-transform: uppercase;
+        font-size: 3em;
+        border-bottom: 2px solid white;
+        border-top: 2px solid white;
+        padding: 0.5em 0.5em 0.5em 0;
+    }
+
+    & 
+    .deco-box {
+        border-top-left-radius: 37px 140px;
+        border-top-right-radius: 23px 130px;
+        border-bottom-left-radius: 110px 19px;
+        border-bottom-right-radius: 120px 24px;
+        padding: 10px;
+        margin: 100px auto 0;
+        line-height: 28px;
+        transform: rotate(-.5deg);
+    }
+}

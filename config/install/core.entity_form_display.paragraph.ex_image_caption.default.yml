@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ex_image_caption.field_ex_image
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.ex_image_caption
+  module:
+    - image
+id: paragraph.ex_image_caption.default
+targetEntityType: paragraph
+bundle: ex_image_caption
+mode: default
+content:
+  field_ex_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,167 @@
+<?php
+
+/**
+ * @file
+ * Contains lda_exhibit.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lda_exhibit_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lda_exhibit module.
+    case 'help.page.lda_exhibit':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('A custom module for ACE Exhibits') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_preprocess_() for node.html.twig.
+ */
+function lda_exhibit_preprocess_node(&$variables, $hook) {
+$node = $variables['node'];
+  //check content type
+  if ($node->getType() == 'lda_exhibit') {
+    $variables['#attached']['library'][] = 'lda_exhibit/lda_exhibit'; 
+    $variables['base_path'] = base_path();
+
+	}
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function lda_exhibit_preprocess_html(&$variables) {
+if($variables['node']->type == "lda_exhibit"){
+    
+  // Get the current path
+  $current_path = \Drupal::service('path.current')->getPath();
+$path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+$path_alias = ltrim($path_alias, '/');
+  // Assign it to body class 
+  $variables['attributes']['class'][] = str_replace("/", "", $path_alias);
+    $variables['img_path'] = file_create_url(drupal_get_path('module', 'lda_exhibit') . '/img/exhibit-logo.png');
+        unset($variables['page']['content']['lda_exhibit_page_title']);
+  }
+}
+
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function lda_exhibit_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  // explode args.
+  $path_args = explode('/', $current_path);
+  if (($node = \Drupal::request()->attributes->get('node')) && isset($path_args[3]) && ($path_args[3] == 'edit' || $path_args[3] == 'delete')) {
+    array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
+  }
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+	$suggestions[] = 'page__' . $node->bundle();
+  }
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function lda_exhibit_field_widget_paragraphs_form_alter(&$element, &$form_state, $context) {
+  if (!empty($element['subform']['field_is_hero'])) {
+    $parents_array = $element['subform']['#parents'];
+    $parents = array_shift($parents_array) . '[' . implode('][', $parents_array) . ']';
+    if (!empty($element['subform']['field_card_section_hero_img'])) {
+      $element['subform']['field_card_section_hero_img']['#states'] = [
+        'visible' => [
+          ':input[name="' . $parents . '[field_is_hero][value]"]' => [
+            'checked' =>  TRUE ,
+          ],
+        ],
+      ];
+    }
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+
+function lda_exhibit_theme($existing, $type, $theme, $path) {
+    return [
+    'page__lda_exhibit' => [
+      'template' => 'page--lda-exhibit',
+        'base hook' => 'page',
+    ],
+    'node__lda_exhibit' => [
+      'template' => 'node--lda-exhibit',
+        'base hook' => 'node',
+    ],
+    'field__field_exhibit_footer' => [
+      'template' => 'field--field-exhibit-footer',
+        'base hook' => 'field',
+    ],
+    'field__field_exhibit_card' => [
+      'template' => 'field--field-exhibit-card',
+        'base hook' => 'field',
+    ],
+    'field__field_section_in_card' => [
+      'template' => 'field--field-section-in-card',
+        'base hook' => 'field',
+    ],
+    'field__paragraph__slider_section' => [
+      'template' => 'field--paragraph--slider-section',
+        'base hook' => 'field',
+    ],
+    'field__paragraph__two_column_section' => [
+      'template' => 'field--paragraph-two-column-section',
+        'base hook' => 'field',
+    ],
+    'paragraph__exhibit_footer_section' => [
+      'template' => 'paragraph--exhibit-footer-section',
+        'base hook' => 'paragraph',
+    ],
+    'paragraph__ex_image_caption' => [
+      'template' => 'paragraph--ex-image-caption',
+        'base hook' => 'paragraph',
+    ],
+    'paragraph__card_section' => [
+      'template' => 'paragraph--card-section',
+        'base hook' => 'paragraph',
+    ],
+    'paragraph__slider_section' => [
+      'template' => 'paragraph--slider-section',
+        'base hook' => 'paragraph',
+    ],    
+    'paragraph__ex_pull_quote' => [
+      'template' => 'paragraph--ex-pull-quote',
+        'base hook' => 'paragraph',
+    ],
+    'paragraph__ex_text_area' => [
+      'template' => 'paragraph--ex-text-area',
+        'base hook' => 'paragraph',
+    ],
+    'paragraph__exhibit_read_more' => [
+      'template' => 'paragraph--exhibit-read-more',
+        'base hook' => 'paragraph',
+    ],
+    'paragraph__one_column_section' => [
+      'template' => 'paragraph--one-column-section',
+        'base hook' => 'paragraph',
+    ],
+    'paragraph__two_column_section' => [
+      'template' => 'paragraph--two-column-section',
+        'base hook' => 'paragraph',
+    ],
+  ];
+
+}
+

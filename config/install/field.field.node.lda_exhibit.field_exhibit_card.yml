@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exhibit_card
+    - node.type.lda_exhibit
+    - paragraphs.paragraphs_type.card_section
+  module:
+    - entity_reference_revisions
+id: node.lda_exhibit.field_exhibit_card
+field_name: field_exhibit_card
+entity_type: node
+bundle: lda_exhibit
+label: Cards
+description: 'Card sections within the exhibit'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      card_section: card_section
+    negate: 0
+    target_bundles_drag_drop:
+      card_section:
+        weight: 10
+        enabled: true
+      ex_audio_block:
+        weight: 12
+        enabled: false
+      exhibit_footer_section:
+        weight: 14
+        enabled: false
+      ex_image_caption:
+        weight: 15
+        enabled: false
+      ex_pull_quote:
+        weight: 13
+        enabled: false
+      ex_text_area:
+        weight: 14
+        enabled: false
+      exhibit_read_more:
+        weight: 18
+        enabled: false
+      one_column_section:
+        weight: 19
+        enabled: false
+      slide_card_section:
+        weight: 11
+        enabled: true
+      two_column_section:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

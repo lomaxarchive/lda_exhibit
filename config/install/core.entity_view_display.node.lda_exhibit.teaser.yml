@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.lda_exhibit.field_exhibit_card
+    - field.field.node.lda_exhibit.field_ex_class
+    - field.field.node.lda_exhibit.field_exhibit_cover_image
+    - field.field.node.lda_exhibit.field_exhibit_desc
+    - field.field.node.lda_exhibit.field_exhibit_footer
+    - field.field.node.lda_exhibit.field_exhibit_og_image
+    - node.type.lda_exhibit
+  module:
+    - text
+    - user
+id: node.lda_exhibit.teaser
+targetEntityType: node
+bundle: lda_exhibit
+mode: teaser
+content:
+  field_exhibit_descr:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_exhibit_card: true
+  field_ex_class: true
+  field_exhibit_cover_image: true
+  field_exhibit_footer: true
+  field_exhibit_og_image: true

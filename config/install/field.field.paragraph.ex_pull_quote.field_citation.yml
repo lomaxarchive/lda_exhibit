@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_citation
+    - paragraphs.paragraphs_type.ex_pull_quote
+  module:
+    - text
+id: paragraph.ex_pull_quote.field_citation
+field_name: field_citation
+entity_type: paragraph
+bundle: ex_pull_quote
+label: Citation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

@@ -1,0 +1,23 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.one_column_section.field_section_in_card
+    - paragraphs.paragraphs_type.one_column_section
+  module:
+    - entity_reference_revisions
+id: paragraph.one_column_section.default
+targetEntityType: paragraph
+bundle: one_column_section
+mode: default
+content:
+  field_section_in_card:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

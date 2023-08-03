@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_in_card
+    - paragraphs.paragraphs_type.ex_audio_block
+    - paragraphs.paragraphs_type.ex_image_caption
+    - paragraphs.paragraphs_type.ex_text_area
+    - paragraphs.paragraphs_type.one_column_section
+  module:
+    - entity_reference_revisions
+id: paragraph.one_column_section.field_section_in_card
+field_name: field_section_in_card
+entity_type: paragraph
+bundle: one_column_section
+label: 'Card sub-section'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ex_audio_block: ex_audio_block
+      ex_image_caption: ex_image_caption
+      ex_text_area: ex_text_area
+    negate: 0
+    target_bundles_drag_drop:
+      card_section:
+        weight: 12
+        enabled: false
+      ex_audio_block:
+        weight: 13
+        enabled: true
+      ex_image_caption:
+        weight: 13
+        enabled: true
+      ex_pull_quote:
+        weight: 14
+        enabled: false
+      ex_text_area:
+        weight: 15
+        enabled: true
+      ex_youtube_section:
+        weight: 16
+        enabled: true
+      exhibit_image_caption:
+        weight: 17
+        enabled: true
+      one_column_section:
+        weight: 10
+        enabled: false
+      two_column_section:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

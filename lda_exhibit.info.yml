@@ -1,0 +1,10 @@
+name: 'Lomax Digital Archive Exhibits'
+type: module
+description: 'Creates a custom Exhibit type for the LDA'
+core_version_requirement: ^8 || ^9
+package: Custom
+dependencies:
+  - paragraphs
+  - menu_ui
+  - field_group
+  

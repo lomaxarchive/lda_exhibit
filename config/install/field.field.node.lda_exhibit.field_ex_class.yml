@@ -1,0 +1,20 @@
+# field.field.node.lda_exhibit.field_ex_class.yml
+
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ex_class
+    - node.type.lda_exhibit   
+id: node.lda_exhibit.field_ex_class
+field_name: field_ex_class
+entity_type: node
+bundle: lda_exhibit
+label: 'Exhibit Class'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

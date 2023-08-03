@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_area
+    - paragraphs.paragraphs_type.exhibit_footer_section
+  module:
+    - text
+id: paragraph.exhibit_footer_section.field_text_area
+field_name: field_text_area
+entity_type: paragraph
+bundle: exhibit_footer_section
+label: 'Text Area'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.one_column_section.field_section_in_card
+    - paragraphs.paragraphs_type.one_column_section
+  module:
+    - paragraphs
+id: paragraph.one_column_section.default
+targetEntityType: paragraph
+bundle: one_column_section
+mode: default
+content:
+  field_section_in_card:
+    type: paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: 'Primary Column'
+      title_plural: 'Primary Columns'
+      edit_mode: closed_expand_nested
+      closed_mode: summary
+      autocollapse: all
+      closed_mode_threshold: 1
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

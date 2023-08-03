@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ex_text_area.field_text_area
+    - paragraphs.paragraphs_type.ex_text_area
+  module:
+    - text
+id: paragraph.ex_text_area.default
+targetEntityType: paragraph
+bundle: ex_text_area
+mode: default
+content:
+  field_text_area:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

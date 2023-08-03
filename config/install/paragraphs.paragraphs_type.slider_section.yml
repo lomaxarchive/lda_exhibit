@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slider_section
+label: 'Slider section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

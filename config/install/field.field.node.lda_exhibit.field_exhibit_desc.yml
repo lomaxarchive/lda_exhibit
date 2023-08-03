@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exhibit_desc
+    - node.type.lda_exhibit
+  module:
+    - text
+id: node.lda_exhibit.field_exhibit_desc
+field_name: field_exhibit_desc
+entity_type: node
+bundle: lda_exhibit
+label: 'Exhibit description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

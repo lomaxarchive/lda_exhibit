@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: one_column_section
+label: 'One column section'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

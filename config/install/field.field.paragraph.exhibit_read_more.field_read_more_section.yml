@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_read_more_section
+    - paragraphs.paragraphs_type.exhibit_read_more
+    - paragraphs.paragraphs_type.one_column_section
+    - paragraphs.paragraphs_type.two_column_section
+  module:
+    - entity_reference_revisions
+id: paragraph.exhibit_read_more.field_read_more_section
+field_name: field_read_more_section
+entity_type: paragraph
+bundle: exhibit_read_more
+label: 'Read more section'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      one_column_section: one_column_section
+      two_column_section: two_column_section
+    negate: 0
+    target_bundles_drag_drop:
+      card_section:
+        weight: 12
+        enabled: false
+      ex_audio_block:
+        weight: 13
+        enabled: false
+      exhibit_footer_section:
+        weight: 14
+        enabled: false
+      ex_image_caption:
+        weight: 15
+        enabled: false
+      ex_pull_quote:
+        weight: 16
+        enabled: false
+      ex_text_area:
+        weight: 17
+        enabled: false
+      ex_youtube_section:
+        weight: 18
+        enabled: false
+      exhibit_read_more:
+        weight: 11
+        enabled: false
+      one_column_section:
+        weight: 19
+        enabled: true
+      two_column_section:
+        weight: 20
+        enabled: true
+field_type: entity_reference_revisions
